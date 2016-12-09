@@ -11,12 +11,13 @@ function draw() {
   ship.show();
   ship.update();
 
-  if (frameCount % 100 == 0) {
+  if (frameCount % 120 == 0) {
     obstacles.push(new Obstacle);
   }
   for (var i = 0; i < obstacles.length; ++i) {
     obstacles[i].show();
     obstacles[i].update();
+    obstacles[i].hits(ship);
     if (obstacles[i].isGone()) {
       obstacles.splice(i, 1);
     }
