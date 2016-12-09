@@ -31,4 +31,8 @@ function Ship() {
     this.startingVector.y -= this.thrusters;
     this.velocity -= this.thrusters;
   }
+
+  this.hits = function(obstacle) {
+    
+  }
 }
