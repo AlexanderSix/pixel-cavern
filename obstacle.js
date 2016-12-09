@@ -1,4 +1,4 @@
-function Pipe() {
+function Obstacle() {
   this.width = 40;
   this.pipeTop = random(height/2);
   this.pipeBottom = random(height/2);
@@ -6,7 +6,7 @@ function Pipe() {
   this.scrollSpeed = 2;
 
   this.show = function() {
-    
+
   }
 
 
