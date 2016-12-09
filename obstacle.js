@@ -2,14 +2,21 @@ function Obstacle() {
   this.width = 40;
   this.pipeBottom = random(100, height/2 - 40);
   this.pipeTop = random(height/2 - 40, height-100);
-  this.enterLocation = width;
+  this.location = width;
   this.scrollSpeed = 2;
 
   this.show = function() {
     fill(0, 255, 0);
-    rect(width/2, this.pipeTop, this.width, height);
-    rect(width/2, 0, this.width, this.pipeBottom);
+    rect(this.location, this.pipeTop, this.width, height);
+    rect(this.location, 0, this.width, this.pipeBottom);
   }
 
+  this.update = function() {
+    this.location -= this.scrollSpeed;
+  }
+
+  this.isGone = function() {
+    if (this.location < -this.width);
+  }
 
 }
