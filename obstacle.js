@@ -1,7 +1,7 @@
 function Obstacle() {
   this.width = 40;
-  this.pipeBottom = random(100, height/2 - 40);
-  this.pipeTop = random(height/2 - 40, height-100);
+  this.pipeBottom = random(100, height/2 - 75);
+  this.pipeTop = random(height/2 - 75, height-100);
   this.location = width;
   this.scrollSpeed = 2;
 
