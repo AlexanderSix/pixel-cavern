@@ -6,6 +6,8 @@ function Ship() {
   this.velocity = 0;
   this.thrusters = 15;
 
+  this.health = 2;
+
   this.show = function() {
     fill(0, 255, 0);
     rect(this.startingVector.x, this.startingVector.y, this.size, this.size);
@@ -30,5 +32,17 @@ function Ship() {
   this.boosters = function() {
     this.startingVector.y -= this.thrusters;
     this.velocity -= this.thrusters;
+  }
+
+  this.decreaseHealth = function() {
+    this.health = this.health - 1;
+  }
+
+  this.isDead = function() {
+    if (this.health < 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

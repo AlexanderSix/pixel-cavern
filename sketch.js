@@ -1,9 +1,14 @@
 var ship;
-var obstacles = [];
+var obstacles;
 
 function setup() {
   createCanvas(600, 600);
+  reset();
+}
+
+function reset() {
   ship = new Ship();
+  obstacles = [];
 }
 
 function draw() {
@@ -14,13 +19,20 @@ function draw() {
   if (frameCount % 120 == 0) {
     obstacles.push(new Obstacle);
   }
-  for (var i = 0; i < obstacles.length; ++i) {
+  for (var i = obstacles.length-1; i >= 0; --i) {
     obstacles[i].show();
     obstacles[i].update();
-    obstacles[i].hits(ship);
+    if (obstacles[i].hits(ship)) {
+      ship.decreaseHealth();
+    }
     if (obstacles[i].isGone()) {
       obstacles.splice(i, 1);
     }
+  }
+
+  if (ship.isDead()) {
+    // console.log("DEAD");
+    reset();
   }
   // console.log(obstacles.length);
 }

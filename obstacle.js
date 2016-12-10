@@ -7,6 +7,7 @@ function Obstacle() {
   this.scrollSpeed = 2;
 
   this.red = false;
+  this.hit = false;
 
   this.show = function() {
     fill(0, 255, 0);
@@ -22,17 +23,19 @@ function Obstacle() {
   }
 
   this.isGone = function() {
-    if (this.location < -this.width);
+    if (this.location < -this.width) {
+      return true;
+    }
   }
 
   this.hits = function(ship) {
-    if ((ship.startingVector.y < this.pipeTop-this.space && (ship.startingVector.x + ship.size > this.location && ship.startingVector.x + ship.size < this.location + this.width))||
-     ship.startingVector.y > this.pipeTop && (ship.startingVector.x + ship.size > this.location && ship.startingVector.x + ship.size < this.location + this.width)) {
+    if (((ship.startingVector.y < this.pipeTop-this.space && (ship.startingVector.x + ship.size > this.location && ship.startingVector.x + ship.size < this.location + this.width))||
+     ship.startingVector.y > this.pipeTop && (ship.startingVector.x + ship.size > this.location && ship.startingVector.x + ship.size < this.location + this.width)) && this.hit == false) {
       console.log("OUCH!!");
       this.red = true;
+      this.hit = true;
       return true;
     }
-    this.red = false;
     return false;
   }
 }
