@@ -6,7 +6,7 @@ function Ship() {
   this.velocity = 0;
   this.thrusters = 15;
 
-  this.health = 2;
+  this.health = 5;
 
   this.show = function() {
     fill(0, 255, 0);
