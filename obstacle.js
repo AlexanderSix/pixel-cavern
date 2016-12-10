@@ -36,6 +36,14 @@ function Obstacle() {
       this.hit = true;
       return true;
     }
+    if (((ship.startingVector.y < this.pipeTop-this.space && (ship.startingVector.x - ship.size > this.location && ship.startingVector.x - ship.size < this.location + this.width))||
+     ship.startingVector.y > this.pipeTop && (ship.startingVector.x - ship.size > this.location && ship.startingVector.x - ship.size < this.location + this.width)) && this.hit == false) {
+      console.log("OUCH!!");
+      this.red = true;
+      this.hit = true;
+      return true;
+    }
+
     return false;
   }
 }
